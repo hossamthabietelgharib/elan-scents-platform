@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Élan Scents | THE HOME OF GULF FRAGRANCES</title>
+  <meta name="description" content="Élan Scents — منصة العطور الخليجية الأوريجنال الفاخرة." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="construction-banner" id="constructionBanner">
+    <div class="banner-track">
+      <span class="banner-text">المنصة ما زالت تحت الإنشاء ولا يجوز التعامل عليها</span>
+      <span class="banner-sep">✦</span>
+      <span class="banner-text">The platform is still under construction — no transactions allowed</span>
+      <span class="banner-sep">✦</span>
+      <span class="banner-text">المنصة ما زالت تحت الإنشاء ولا يجوز التعامل عليها</span>
+      <span class="banner-sep">✦</span>
+      <span class="banner-text">The platform is still under construction — no transactions allowed</span>
+      <span class="banner-sep">✦</span>
+    </div>
+  </div>
+
+  <header class="header" id="mainHeader">
+    <div class="header-inner">
+      <button class="icon-btn menu-btn" id="menuToggle" aria-label="القائمة">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+      <div class="logo-area">
+        <a href="#hero" class="logo">
+          <span class="logo-elan">Élan</span>
+          <span class="logo-scents">Scents</span>
+        </a>
+        <div class="logo-underline"></div>
+        <p class="tagline">THE HOME OF GULF FRAGRANCES</p>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="بحث"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7.5"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        <button class="icon-btn" aria-label="المفضلة"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+        <button class="icon-btn" aria-label="الإشعارات"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></button>
+        <button class="icon-btn cart-btn" aria-label="السلة"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></button>
+        <button class="icon-btn lang-btn" id="langToggle" aria-label="اللغة"><span class="lang-label">EN</span></button>
+      </div>
+    </div>
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="ابحث عن عطر، براند، متجر..." autocomplete="off" />
+        <button class="search-close" id="searchClose">×</button>
+      </div>
+      <div class="filters-panel" id="filtersPanel">
+        <div class="filter-group"><label>الفئة</label><select id="filterCategory"><option value="">الكل</option><option value="men">رجالي</option><option value="women">نسائي</option><option value="unisex">عطر يجمعنا</option></select></div>
+        <div class="filter-group"><label>البراند</label><select id="filterBrand"><option value="">الكل</option></select></div>
+        <div class="filter-group"><label>المتجر</label><select id="filterStore"><option value="">الكل</option><option value="afnan">Afnan Egypt</option><option value="emarati">Emarati Scents</option></select></div>
+        <div class="filter-group"><label>المناسبة</label><select id="filterOccasion"><option value="">الكل</option><option value="day">نهاري</option><option value="night">ليلي</option><option value="work">عمل</option><option value="date">موعد</option><option value="gift">هدية</option></select></div>
+        <div class="filter-group"><label>النوتة</label><select id="filterNote"><option value="">الكل</option><option value="amber">عنبري</option><option value="citrus">حمضي</option><option value="woody">خشبي</option><option value="oud">عود</option><option value="cardamom">هيل</option></select></div>
+        <div class="filter-group"><label>السعر</label><div class="price-range"><input type="number" id="priceMin" placeholder="من" min="0" /><span>—</span><input type="number" id="priceMax" placeholder="إلى" min="0" /></div></div>
+        <div class="filter-group"><label>الترتيب</label><select id="filterSort"><option value="relevance">الأكثر صلة</option><option value="price-asc">السعر ↑</option><option value="price-desc">السعر ↓</option><option value="newest">الأحدث</option></select></div>
+        <button class="btn-apply-filters" id="applyFilters">تطبيق الفلاتر</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <div class="side-logo"><span class="logo-elan">Élan</span><span class="logo-scents">Scents</span></div>
+      <button class="close-menu" id="closeMenu">×</button>
+    </div>
+    <ul class="menu-list">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#magic">سحر الخليج بين يديك</a></li>
+      <li><a href="#brands">البراندات</a></li>
+      <li><a href="#offers">عروض وخصومات</a></li>
+      <li><a href="#new">أحدث الإصدارات</a></li>
+      <li><a href="#masterpieces">Élan Scents Masterpieces</a></li>
+      <li><a href="#categories">الفئات</a></li>
+      <li><a href="#occasions">مناسبات</a></li>
+      <li><a href="#notes">نوتات عطرية</a></li>
+      <li><a href="#coming">إصدارات مرتقب وصولها</a></li>
+      <li><a href="#stores">المتاجر</a></li>
+      <li><a href="#about">عن Élan Scents</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
+      <li class="divider"></li>
+      <li><a href="#login">تسجيل الدخول</a></li>
+      <li><a href="#register">إنشاء حساب</a></li>
+    </ul>
+  </nav>
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <main>
+  <section class="hero" id="hero">
+    <div class="hero-media"><div class="hero-bg"></div><div class="hero-overlay"></div></div>
+    <div class="hero-content">
+      <div class="hero-cta-block">
+        <h1 class="hero-title">سحر الخليج بين يديك</h1>
+        <button class="btn-explore" id="btnMagicExplore">استكشف المجموعة</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-number" id="brandCount">09</span><span class="stat-label">براندات</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-number" id="storeCount">02</span><span class="stat-label">متاجر</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-number" id="perfumeCount">000</span><span class="stat-label">عطور</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section all-perfumes-section" id="magic" hidden>
+    <div class="section-header">
+      <h2 class="section-title">سحر الخليج بين يديك</h2>
+      <p class="section-sub">جميع العطور المتاحة وفق قاعدة السعر الموحد والأرخص</p>
+    </div>
+    <div class="perfume-grid" id="allPerfumesGrid"></div>
+  </section>
+
+  <section class="section" id="brands">
+    <div class="section-header">
+      <h2 class="section-title">للفخامة عنوان وللرقي حضور</h2>
+      <button class="btn-view-all">استعرض المجموعة</button>
+    </div>
+    <div class="carousel-wrapper"><div class="carousel" id="brandsCarousel"></div></div>
+  </section>
+
+  <section class="section" id="offers">
+    <div class="section-header">
+      <h2 class="section-title">عروض وخصومات</h2>
+      <button class="btn-view-all">استعرض المجموعة</button>
+    </div>
+    <div class="carousel-wrapper"><div class="carousel" id="offersCarousel"></div></div>
+  </section>
+
+  <section class="section" id="new">
+    <div class="section-header">
+      <h2 class="section-title">أحدث الإصدارات</h2>
+      <button class="btn-view-all">استعرض المجموعة</button>
+    </div>
+    <div class="carousel-wrapper"><div class="carousel" id="newCarousel"></div></div>
+  </section>
+
+  <section class="section" id="masterpieces">
+    <div class="section-header">
+      <h2 class="section-title">Élan Scents Masterpieces</h2>
+      <p class="section-sub">الأكثر تميزًا • الأعلى تقييمًا • الأكثر مبيعًا • الأكثر مشاهدة</p>
+      <button class="btn-view-all">استعرض المجموعة</button>
+    </div>
+    <div class="carousel-wrapper"><div class="carousel" id="masterpiecesCarousel"></div></div>
+  </section>
+
+  <section class="section" id="categories">
+    <div class="section-header"><h2 class="section-title">لك عطر.... ولها حكاية</h2></div>
+    <div class="categories-grid">
+      <article class="category-card card-3d" data-category="men">
+        <div class="cat-image men-img"></div>
+        <div class="cat-body"><h3>رجالي</h3><p>القوة • الحضور • الأناقة • الفخامة</p><button class="btn-explore-sm">استعرض المجموعة</button></div>
+      </article>
+      <article class="category-card card-3d" data-category="women">
+        <div class="cat-image women-img"></div>
+        <div class="cat-body"><h3>نسائي</h3><p>الأنوثة • الفخامة • الجاذبية • الحضور</p><button class="btn-explore-sm">استعرض المجموعة</button></div>
+      </article>
+      <article class="category-card card-3d" data-category="unisex">
+        <div class="cat-image unisex-img"></div>
+        <div class="cat-body"><h3>عطر يجمعنا</h3><p>الحب • المشاعر • الرومانسية</p><button class="btn-explore-sm">استعرض المجموعة</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="occasions">
+    <div class="section-header"><h2 class="section-title">لكل لحظة حكاية</h2></div>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="occasionsCarousel">
+        <article class="occasion-card card-3d"><div class="occ-visual day"></div><h3>نهاري</h3><button class="btn-explore-sm">استعرض المجموعة</button></article>
+        <article class="occasion-card card-3d"><div class="occ-visual night"></div><h3>ليلي</h3><button class="btn-explore-sm">استعرض المجموعة</button></article>
+        <article class="occasion-card card-3d"><div class="occ-visual work"></div><h3>عمل</h3><button class="btn-explore-sm">استعرض المجموعة</button></article>
+        <article class="occasion-card card-3d"><div class="occ-visual date"></div><h3>موعد</h3><button class="btn-explore-sm">استعرض المجموعة</button></article>
+        <article class="occasion-card card-3d"><div class="occ-visual gift"></div><h3>هدية</h3><button class="btn-explore-sm">استعرض المجموعة</button></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="notes">
+    <div class="section-header">
+      <h2 class="section-title">إبداعات سبقت حضورها</h2>
+      <button class="btn-view-all">استكشف المجموعة</button>
+    </div>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="notesCarousel">
+        <article class="note-card card-3d"><div class="note-visual amber"></div><h3>عنبري</h3></article>
+        <article class="note-card card-3d"><div class="note-visual citrus"></div><h3>حمضي</h3></article>
+        <article class="note-card card-3d"><div class="note-visual woody"></div><h3>خشبي</h3></article>
+        <article class="note-card card-3d"><div class="note-visual oud"></div><h3>عود</h3></article>
+        <article class="note-card card-3d"><div class="note-visual cardamom"></div><h3>هيل</h3></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="coming">
+    <div class="section-header">
+      <h2 class="section-title">إصدارات مرتقب وصولها</h2>
+      <button class="btn-view-all">استعرض المجموعة</button>
+    </div>
+    <div class="carousel-wrapper"><div class="carousel" id="comingCarousel"></div></div>
+  </section>
+
+  <section class="section" id="stores">
+    <div class="section-header">
+      <h2 class="section-title">عندما تلتقي فخامة الخليج برقي أوروبا</h2>
+      <button class="btn-view-all">استعرض المجموعة</button>
+    </div>
+    <div class="stores-grid">
+      <article class="store-card card-3d">
+        <div class="store-logo">AFNAN</div>
+        <h3>Afnan Egypt</h3>
+        <p class="store-desc">عطور أصلية من قلب الإمارات إلى مصر</p>
+        <span class="store-status">متاح للبيع</span>
+        <button class="btn-explore-sm">استعرض الكتالوج</button>
+      </article>
+      <article class="store-card card-3d">
+        <div class="store-logo">EMARATI SCENTS</div>
+        <h3>Emarati Scents</h3>
+        <p class="store-desc">الوجهة الأولى للعطور العربية الأصلية في مصر</p>
+        <span class="store-status">متاح للبيع</span>
+        <button class="btn-explore-sm">استعرض الكتالوج</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="section about-section" id="about">
+    <div class="about-content">
+      <h2 class="section-title">عن Élan Scents</h2>
+      <div class="about-block">
+        <h3 class="about-subtitle">قصة المنصة</h3>
+        <p>بتدور على عطر خليجي أوريجنال ومميز… بس محتار تشتريه منين؟ ومين تثق فيه؟ وهل بتدفع فعلًا السعر الصح؟</p>
+        <p><strong>Élan Scents</strong> بتسهّل عليك الحكاية. جمعنا أشهر وأرقى العطور الخليجية الأوريجنال من توكيلات معتمدة ومتاجر موثوقة، ونقارن لك الأسعار والعروض لتصل إلى أفضل سعر بثقة.</p>
+      </div>
+      <div class="about-block">
+        <h3 class="about-subtitle">لماذا Élan Scents؟</h3>
+        <p class="highlight-phrase">جودة • ثقة • مصداقية • أفضل سعر</p>
+        <p>من الخليج… برؤية أوروبية. فخامة تستحق أن تُروى.</p>
+      </div>
+      <p class="about-cta">اكتشف عطرك على Élan Scents… وقارن واختار بثقة.</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-header">
+      <h2 class="section-title">تواصل معنا</h2>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-field"><label>الاسم</label><input type="text" name="name" required placeholder="اسمك" /></div>
+        <div class="form-field"><label>البريد</label><input type="email" name="email" required placeholder="email@example.com" /></div>
+      </div>
+      <div class="form-field"><label>الهاتف</label><input type="tel" name="phone" placeholder="+20 1xxxxxxxxx" /></div>
+      <div class="form-field"><label>الرسالة</label><textarea name="message" rows="5" required placeholder="رسالتك..."></textarea></div>
+      <button type="submit" class="btn-submit">إرسال</button>
+    </form>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-elan">Élan</span><span class="logo-scents">Scents</span></div>
+        <p class="tagline">THE HOME OF GULF FRAGRANCES</p>
+        <p class="footer-tag">من الخليج… برؤية أوروبية</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Élan Scents. جميع الحقوق محفوظة.</p>
+        <p class="under-construction">المنصة قيد الإنشاء — لا تُقبل معاملات حالياً</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-float" id="whatsappFloat" aria-label="واتساب">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 6.045L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>
