@@ -1,0 +1,403 @@
+/* Élan Scents — Complete Luxury Identity */
+:root {
+  --gold: #c9a227;
+  --gold-light: #e8d48b;
+  --gold-dark: #8a6d1b;
+  --gold-3d: linear-gradient(145deg, #f5e6b8 0%, #d4af37 35%, #c9a227 60%, #8a6d1b 100%);
+  --black: #0a0a0a;
+  --gray-dark: #2c2c2c;
+  --gray: #6b6b6b;
+  --gray-light: #a0a0a0;
+  --ivory: #f8f4eb;
+  --off-white: #faf8f4;
+  --white: #ffffff;
+  --shadow-soft: 0 8px 32px rgba(0,0,0,0.07);
+  --shadow-hover: 0 18px 50px rgba(201,162,39,0.2);
+  --radius: 16px;
+  --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --font-ar: 'Cairo', sans-serif;
+  --font-en: 'Playfair Display', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-ar);
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.logo-elan, .hero-title, .section-title, .stat-number, .banner-text, .side-logo .logo-elan, .footer-logo .logo-elan {
+  background: var(--gold-3d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.construction-banner {
+  background: var(--off-white);
+  height: 34px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+  position: relative;
+  border-bottom: 1px solid rgba(201,162,39,0.18);
+}
+.banner-track {
+  display: flex;
+  gap: 48px;
+  animation: scrollBanner 32s linear infinite;
+  white-space: nowrap;
+}
+.banner-text { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; }
+.banner-sep { color: var(--gold); font-size: 0.6rem; opacity: 0.7; }
+@keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+
+.header {
+  position: fixed;
+  top: 34px;
+  left: 0; right: 0;
+  z-index: 1000;
+  transition: background 0.4s, backdrop-filter 0.4s;
+  background: transparent;
+}
+.header.scrolled {
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.05);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+.logo-area {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo { text-decoration: none; display: flex; align-items: baseline; gap: 5px; }
+.logo-elan { font-family: var(--font-en); font-size: 1.55rem; }
+.logo-scents { font-family: var(--font-en); font-size: 1.05rem; color: var(--black); font-weight: 400; }
+.logo-underline {
+  width: 52px; height: 1.5px; background: var(--gold); margin-top: 1px;
+  animation: pulseLine 2.4s ease-in-out infinite;
+}
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.65); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+.tagline {
+  font-family: var(--font-en);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: var(--ivory);
+  margin-top: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+.header.scrolled .tagline { color: var(--gray); text-shadow: none; }
+.icon-btn {
+  background: none; border: none; color: var(--gold); cursor: pointer;
+  padding: 7px; display: flex; align-items: center; justify-content: center;
+  transition: transform 0.25s; position: relative;
+}
+.icon-btn:hover { transform: scale(1.12); }
+.header-actions { display: flex; align-items: center; gap: 2px; }
+.cart-count {
+  position: absolute; top: 1px; right: 1px;
+  background: var(--gold); color: #fff; font-size: 0.58rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-weight: 700;
+}
+.lang-label { font-size: 0.72rem; font-weight: 700; color: var(--gold); }
+
+.search-overlay {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: var(--white); padding: 14px 16px 20px;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-12px); opacity: 0; pointer-events: none;
+  transition: all 0.3s ease; max-height: 80vh; overflow-y: auto;
+}
+.search-overlay.active { transform: translateY(0); opacity: 1; pointer-events: all; }
+.search-box { display: flex; align-items: center; gap: 10px; max-width: 640px; margin: 0 auto 16px; }
+.search-box input {
+  flex: 1; border: 1.5px solid rgba(201,162,39,0.28); border-radius: 28px;
+  padding: 12px 18px; font-family: var(--font-ar); font-size: 0.92rem;
+  outline: none; background: var(--off-white);
+}
+.search-close { background: none; border: none; font-size: 1.6rem; color: var(--gray); cursor: pointer; }
+.filters-panel {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  max-width: 640px; margin: 0 auto;
+}
+.filter-group label { display: block; font-size: 0.72rem; color: var(--gray); margin-bottom: 4px; }
+.filter-group select, .filter-group input {
+  width: 100%; border: 1px solid rgba(201,162,39,0.25); border-radius: 10px;
+  padding: 9px 12px; font-family: var(--font-ar); font-size: 0.85rem; background: var(--off-white); outline: none;
+}
+.price-range { display: flex; align-items: center; gap: 6px; }
+.price-range input { flex: 1; }
+.btn-apply-filters {
+  grid-column: 1 / -1; background: var(--gold); color: #fff; border: none;
+  border-radius: 28px; padding: 12px; font-family: var(--font-ar); font-size: 0.9rem;
+  font-weight: 600; cursor: pointer; margin-top: 4px;
+}
+
+.side-menu {
+  position: fixed; top: 0; right: -310px; width: 290px; height: 100vh;
+  background: var(--off-white); z-index: 1100;
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow-y: auto; box-shadow: -10px 0 36px rgba(0,0,0,0.12);
+}
+.side-menu.open { right: 0; }
+.side-menu-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 18px; border-bottom: 1px solid rgba(201,162,39,0.18);
+}
+.side-logo .logo-elan { font-family: var(--font-en); font-size: 1.25rem; }
+.side-logo .logo-scents { font-family: var(--font-en); font-size: 0.9rem; color: var(--black); }
+.close-menu { background: none; border: none; font-size: 1.7rem; color: var(--gold); cursor: pointer; }
+.menu-list { list-style: none; padding: 12px 0 40px; }
+.menu-list li a {
+  display: block; padding: 13px 22px; color: var(--gold-dark); text-decoration: none;
+  font-size: 0.92rem; font-weight: 500; transition: background 0.25s, padding-right 0.25s;
+}
+.menu-list li a:hover { background: rgba(201,162,39,0.08); padding-right: 28px; }
+.menu-list .divider { height: 1px; background: rgba(201,162,39,0.15); margin: 10px 22px; }
+.menu-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.42); z-index: 1050;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.menu-backdrop.active { opacity: 1; pointer-events: all; }
+
+.hero {
+  position: relative; min-height: 100vh; min-height: 100dvh;
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden; padding-top: 95px;
+}
+.hero-media { position: absolute; inset: 0; z-index: 0; }
+.hero-bg {
+  width: 100%; height: 100%;
+  background: linear-gradient(165deg, #f9f5ed 0%, #ebe3d4 28%, #d9cbb5 55%, #c9b896 100%);
+  position: relative;
+}
+.hero-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(255,255,255,0.55) 0%, transparent 48%),
+    radial-gradient(ellipse at 75% 75%, rgba(201,162,39,0.1) 0%, transparent 42%);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(255,255,255,0.75) 0%, transparent 42%);
+}
+.hero-content {
+  position: relative; z-index: 2; width: 100%; padding: 0 18px 44px;
+  display: flex; flex-direction: column; align-items: center; gap: 28px;
+}
+.hero-cta-block { text-align: center; }
+.hero-title { font-size: 1.75rem; margin-bottom: 14px; }
+.btn-explore, .btn-view-all, .btn-explore-sm, .btn-submit {
+  background: transparent; border: 1.5px solid var(--gold); color: var(--gold-dark);
+  padding: 10px 26px; border-radius: 30px; font-family: var(--font-ar);
+  font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all var(--transition);
+}
+.btn-explore:hover, .btn-view-all:hover, .btn-explore-sm:hover {
+  background: var(--gold); color: #fff; box-shadow: var(--shadow-hover); transform: translateY(-2px);
+}
+.hero-stats {
+  display: flex; align-items: center; gap: 18px;
+  background: rgba(255,255,255,0.72); backdrop-filter: blur(14px);
+  padding: 14px 24px; border-radius: 18px;
+  border: 1px solid rgba(201,162,39,0.22); box-shadow: var(--shadow-soft);
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.stat-number { font-family: var(--font-en); font-size: 1.55rem; line-height: 1; }
+.stat-label { font-size: 0.68rem; color: var(--gray); }
+.stat-divider { width: 1px; height: 32px; background: rgba(201,162,39,0.28); }
+
+.section { padding: 56px 18px; max-width: 1400px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 32px; }
+.section-title { font-size: 1.45rem; margin-bottom: 10px; }
+.section-sub { font-size: 0.82rem; color: var(--gray); margin-bottom: 12px; }
+.btn-view-all { margin-top: 6px; }
+
+.card-3d {
+  background: var(--white); border-radius: var(--radius); position: relative;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05); overflow: hidden;
+}
+.card-3d::before {
+  content: ''; position: absolute; inset: 0; border-radius: var(--radius); padding: 1.5px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none; opacity: 0.65; transition: opacity 0.3s;
+}
+.card-3d:hover { transform: translateY(-7px) scale(1.02); box-shadow: var(--shadow-hover); }
+.card-3d:hover::before { opacity: 1; }
+
+.carousel-wrapper { overflow: hidden; margin: 0 -18px; padding: 6px 18px 20px; }
+.carousel {
+  display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 6px;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel > * { scroll-snap-align: start; flex-shrink: 0; }
+
+.brand-card {
+  width: 132px; height: 152px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px; padding: 14px; cursor: pointer;
+}
+.brand-logo {
+  width: 76px; height: 76px; background: var(--off-white); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-en); font-size: 0.62rem; font-weight: 700;
+  color: var(--gray-dark); text-align: center; letter-spacing: 0.04em;
+  line-height: 1.25; border: 1px solid rgba(0,0,0,0.04); white-space: pre-line;
+}
+.brand-name { font-size: 0.75rem; font-weight: 500; color: var(--gray-dark); text-align: center; }
+
+.perfume-card {
+  width: 152px; padding: 11px; cursor: pointer; display: flex; flex-direction: column; gap: 6px;
+}
+.perfume-img {
+  width: 100%; aspect-ratio: 1; background: linear-gradient(150deg, #f2ebe2, #e2d8ca);
+  border-radius: 11px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.9rem; color: var(--gold);
+}
+.perfume-brand { font-size: 0.62rem; color: var(--gray); letter-spacing: 0.05em; text-transform: uppercase; }
+.perfume-name { font-size: 0.82rem; font-weight: 600; color: var(--black); line-height: 1.3; }
+.perfume-price { font-family: var(--font-en); font-size: 0.88rem; color: var(--gold-dark); font-weight: 600; }
+.perfume-price .old { text-decoration: line-through; color: var(--gray-light); font-size: 0.72rem; margin-right: 5px; }
+.perfume-store { font-size: 0.65rem; color: var(--gray-light); }
+
+.perfume-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+.all-perfumes-section { background: var(--off-white); max-width: none; padding: 48px 18px; }
+
+.categories-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.category-card { padding: 0; cursor: pointer; }
+.cat-image { height: 170px; border-radius: var(--radius) var(--radius) 0 0; }
+.men-img { background: linear-gradient(155deg, #1f1f1f, #3d3d3d 50%, #5a5a5a); }
+.women-img { background: linear-gradient(155deg, #c9a0a0, #e0c0c0 50%, #f0d8d8); }
+.unisex-img { background: linear-gradient(155deg, #b8941f, #d4b84a 50%, #e8d48b); }
+.cat-body { padding: 14px 14px 18px; text-align: center; }
+.cat-body h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.cat-body p { font-size: 0.78rem; color: var(--gray); margin-bottom: 12px; }
+
+.occasion-card {
+  width: 124px; padding: 20px 12px; text-align: center; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.occ-visual { width: 56px; height: 56px; border-radius: 50%; }
+.occ-visual.day { background: linear-gradient(135deg, #f5e6b8, #e8c547); }
+.occ-visual.night { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.occ-visual.work { background: linear-gradient(135deg, #2c3e50, #4a6274); }
+.occ-visual.date { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+.occ-visual.gift { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+.occasion-card h3 { font-size: 0.9rem; font-weight: 600; }
+
+.note-card {
+  width: 118px; padding: 20px 12px; text-align: center; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.note-visual { width: 58px; height: 58px; border-radius: 50%; }
+.note-visual.amber { background: linear-gradient(135deg, #d4a017, #8b6914); }
+.note-visual.citrus { background: linear-gradient(135deg, #f4d35e, #ee964b); }
+.note-visual.woody { background: linear-gradient(135deg, #8b5e3c, #5c3a21); }
+.note-visual.oud { background: linear-gradient(135deg, #3d2b1f, #1a120b); }
+.note-visual.cardamom { background: linear-gradient(135deg, #a8c686, #6b8f4e); }
+.note-card h3 { font-size: 0.88rem; font-weight: 600; }
+
+.stores-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.store-card { padding: 26px 20px; text-align: center; cursor: pointer; }
+.store-logo {
+  height: 54px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-en); font-weight: 700; font-size: 1.05rem;
+  letter-spacing: 0.07em; margin-bottom: 12px; color: var(--gray-dark);
+}
+.store-card h3 { font-size: 1.05rem; margin-bottom: 5px; }
+.store-desc { font-size: 0.78rem; color: var(--gray); margin-bottom: 10px; }
+.store-status {
+  display: inline-block; font-size: 0.68rem; padding: 3px 11px; border-radius: 18px;
+  background: rgba(201,162,39,0.12); color: var(--gold-dark); margin-bottom: 14px;
+}
+
+.about-section { background: var(--off-white); max-width: none; padding: 64px 18px; }
+.about-content { max-width: 720px; margin: 0 auto; }
+.about-block { margin-bottom: 28px; }
+.about-subtitle { font-size: 1.05rem; color: var(--gold-dark); margin-bottom: 10px; font-weight: 600; }
+.about-block p { font-size: 0.92rem; color: var(--gray-dark); line-height: 1.85; margin-bottom: 10px; }
+.highlight-phrase { font-weight: 700; color: var(--gold); letter-spacing: 0.04em; text-align: center; margin: 16px 0; }
+.about-cta { text-align: center; font-size: 1rem; font-weight: 600; color: var(--gold-dark); margin-top: 20px; }
+
+.contact-form { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: flex; flex-direction: column; gap: 14px; }
+.form-field label { display: block; font-size: 0.78rem; color: var(--gray); margin-bottom: 4px; }
+.contact-form input, .contact-form textarea {
+  width: 100%; border: 1.5px solid rgba(201,162,39,0.28); border-radius: 12px;
+  padding: 12px 15px; font-family: var(--font-ar); font-size: 0.92rem;
+  background: var(--off-white); outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+.btn-submit {
+  background: var(--gold); color: #fff; border: none; padding: 13px;
+  font-size: 0.95rem; font-weight: 600; margin-top: 6px;
+}
+.btn-submit:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+.footer { background: var(--black); color: var(--ivory); padding: 48px 18px 28px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+.footer-brand { margin-bottom: 24px; }
+.footer-logo .logo-elan { font-family: var(--font-en); font-size: 1.45rem; }
+.footer-logo .logo-scents { font-family: var(--font-en); font-size: 0.95rem; color: var(--ivory); }
+.footer-brand .tagline { color: var(--gray-light); margin-top: 6px; text-shadow: none; font-size: 0.55rem; }
+.footer-tag { font-size: 0.82rem; color: var(--gold); margin-top: 8px; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px;
+  font-size: 0.72rem; color: var(--gray);
+}
+.footer-bottom .under-construction { margin-top: 5px; color: var(--gold); font-weight: 500; }
+
+.whatsapp-float {
+  position: fixed; bottom: 22px; left: 16px; z-index: 900;
+  background: #25d366; color: #fff; width: 54px; height: 54px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 18px rgba(37,211,102,0.4); text-decoration: none;
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+
+@media (min-width: 600px) {
+  .form-row { flex-direction: row; }
+  .form-row .form-field { flex: 1; }
+  .categories-grid { grid-template-columns: repeat(3, 1fr); }
+  .stores-grid { grid-template-columns: repeat(2, 1fr); }
+  .filters-panel { grid-template-columns: repeat(3, 1fr); }
+  .perfume-card { width: 168px; }
+  .brand-card { width: 148px; height: 168px; }
+  .hero-title { font-size: 2.1rem; }
+  .section-title { font-size: 1.7rem; }
+}
+@media (min-width: 900px) {
+  .header-inner { padding: 12px 36px; }
+  .section { padding: 72px 36px; }
+  .logo-elan { font-size: 1.85rem; }
+  .logo-scents { font-size: 1.25rem; }
+  .tagline { font-size: 0.6rem; }
+}
